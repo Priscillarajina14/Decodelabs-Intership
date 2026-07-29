@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 3 - Database Integration</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Project 3</a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#register">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero text-center">
+    <div class="container">
+        <h1>Mastering the Architecture of State Persistence</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjS2ujZrVHijrmgpCo1-Sj6Q91QhBquXeegDPmcPpqNQ&s=10">
+
+        <p>
+            Java Full Stack Project 3 - Database Integration using
+            Spring Boot, MySQL and JPA.
+        </p>
+
+        <a href="#register" class="btn btn-primary btn-lg">
+            Get Started
+        </a>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+    <div class="container text-center">
+
+        <h2>About Project</h2>
+
+        <p class="mt-3">
+            This project demonstrates complete database integration
+            using Spring Boot, MySQL and Hibernate JPA.
+        </p>
+
+        <div class="row mt-5">
+
+            <div class="col-md-4">
+                <div class="card shadow p-4">
+                    <img src="data:image/jpeg;base64,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FpzI4b6z4qGa9ax4U6RvaI+mqrWZUINJbmSP4YkZCCZCXaQOecrfhifg9NFPeP0qm2+66toZwftY/FZ4xZfwrit1tdWvj4cjZVuDp/RAPM5z+S0Zo1h1btbf7Pfb4tQbW2CahY4CRuRv7TkLmH68U0/LlNWpNVSy11z5uy+TyNdnGTyHtys8YLzOtKox26WfEcjI6SmogdTmYcfADH3q/kzEViq3LOo069n858ORRwHMkOBp7yBjHuUtfJh1X8O686ahV0drq5apjXQvY0OBc5wwAM/es+PDebR6VVpMylcTVDZayKJhz2TTq8T+inyrRNoj9JZp96ShFJPwoyOFpe/A2HPYq2ImePEQnqZxs9LFJC/RKxzHDoRhYZiY7Z9THb4XHBAQEBAQEBAQEBAQSaKunoZdcLhg/SaRkFWY8k0ncJVtNWhpeIaSUAVAdC72jIPmtteVSe/TRGWJ7ThdKAjIq4v7lb82P9p+dUee+2+Jp0y9qe5gz9/JRtyccflGctYUlxvc9YDFH6mI88Hc+JWTJyLW9R6U2yTKqWZUICCZSXOro4jFBIAzOcEZVtM1qRqE63mvqHY324kftW/2BT/k5HflshVFTPVP11Ernu9vRVWva3cozaZ7eQTy08okgeWPHULlbTWdw5EzHSwdf7gWadcY9oZurv5ORZOWyte98jy97i5xOSSdyqJmZncq97dKWrnpJNdPIWE8+4qVL2pO4draa9Jst9uEkZZ2jWZ6tbgq2eTeY0lOW0qwkk5JyTuc9VRPtWmUdzq6JhZA8aDvpcMgKyma1Ok65LV6cKmplq5jNO7U87csKN7zedy5Npmdy5KCIgICAgICAgICAgICAgLoLgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIP/9k=">
+                    <h4>Spring Boot</h4>
+                    <p>Create REST APIs with Java.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqbB9gY85Cqj4TmfnnhztgOvQi5NW32Js43wvPbQ2OuA&s=10">
+                    <h4>MySQL</h4>
+                    <p>Store and retrieve user data.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFsghga57HRJXnLwp_8fFjJlV09nA8gsO9OU0n9daNFQ&s=10">
+                    <h4>Hibernate JPA</h4>
+                    <p>Database persistence using entities.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <H2>Database Integration</H2>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#">
+            Project 3
+        </a>
+
+        <button class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#register">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+
+    <div class="container text-center">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIQ3pwtVrNVAcQ39a7TIN41eFHiGl6el2yEBt58plyiQ&s">
+
+        <h1>Mastering Database Integration</h1>
+
+        <p>
+            Learn Spring Boot, MySQL, Hibernate JPA,
+            CRUD Operations and REST APIs.
+        </p>
+
+        <a href="#register" class="btn btn-warning btn-lg">
+            Start Project
+        </a>
+
+    </div>
+
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+
+    <div class="container">
+
+        <h2 class="text-center mb-5">
+            About Project
+        </h2>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                     class="img-fluid rounded">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h3>Database Integration</h3>
+
+                <p>
+                    This project demonstrates complete
+                    CRUD operations using Spring Boot,
+                    Hibernate JPA and MySQL Database.
+                </p>
+
+                <ul>
+
+                    <li>Schema Design</li>
+
+                    <li>Database Connection</li>
+
+                    <li>REST API Development</li>
+
+                    <li>CRUD Operations</li>
+
+                    <li>Data Validation</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Features -->
+
+<section id="features" class="py-5 bg-light">
+
+<div class="container">
+
+<h2 class="text-center mb-5">
+Project Features
+</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="card p-4 shadow">
+
+<i class="fa-solid fa-database fa-3x text-primary"></i>
+
+<h4 class="mt-3">MySQL</h4>
+
+<p>Store records securely.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card p-4 shadow">
+
+<i class="fa-solid fa-server fa-3x text-success"></i>
+
+<h4 class="mt-3">Spring Boot</h4>
+
+<p>REST Backend.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card p-4 shadow">
+
+<i class="fa-solid fa-code fa-3x text-danger"></i>
+
+<h4 class="mt-3">Hibernate</h4>
+
+<p>JPA Persistence.</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card p-4 shadow">
+
+<i class="fa-solid fa-shield-halved fa-3x text-warning"></i>
+
+<h4 class="mt-3">Security</h4>
+
+<p>Validation & Integrity.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<H3>SQL vs NoSQL</H3>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<div class="container">
+
+<a class="navbar-brand" href="#">Full Stack P3</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#home">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#sql">SQL</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#nosql">NoSQL</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#comparison">Comparison</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+
+<div class="container text-center">
+
+<h1>Choosing the Right Blueprint for Your Data</h1>
+
+<p>
+Understand the difference between SQL and NoSQL databases.
+</p>
+
+</div>
+
+</section>
+
+<!-- SQL -->
+
+<section id="sql" class="container py-5">
+
+<div class="row align-items-center">
+
+<div class="col-md-6">
+
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800"
+class="img-fluid rounded">
+
+</div>
+
+<div class="col-md-6">
+
+<h2>SQL (Relational)</h2>
+
+<ul>
+
+<li>Structured Tables</li>
+
+<li>ACID Transactions</li>
+
+<li>Fixed Schema</li>
+
+<li>Complex Relationships</li>
+
+<li>Examples: MySQL, PostgreSQL</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NoSQL -->
+
+<section id="nosql" class="container py-5">
+
+<div class="row align-items-center">
+
+<div class="col-md-6 order-md-2">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+class="img-fluid rounded">
+
+</div>
+
+<div class="col-md-6 order-md-1">
+
+<h2>NoSQL (Non-Relational)</h2>
+
+<ul>
+
+<li>Schema-less</li>
+
+<li>Highly Scalable</li>
+
+<li>Flexible Data</li>
+
+<li>Fast Performance</li>
+
+<li>Example: MongoDB</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Comparison -->
+
+<section id="comparison" class="py-5 bg-light">
+
+<div class="container">
+
+<h2 class="text-center mb-5">SQL vs NoSQL</h2>
+
+<div class="table-responsive">
+
+<table class="table table-bordered table-hover">
+
+<thead class="table-primary">
+
+<tr>
+
+<th>Feature</th>
+
+<th>SQL</th>
+
+<th>NoSQL</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Schema</td>
+
+<td>Fixed</td>
+
+<td>Flexible</td>
+
+</tr>
+
+<tr>
+
+<td>Scalability</td>
+
+<td>Vertical</td>
+
+<td>Horizontal</td>
+
+</tr>
+
+<tr>
+
+<td>Transactions</td>
+
+<td>ACID</td>
+
+<td>BASE</td>
+
+</tr>
+
+<tr>
+
+<td>Examples</td>
+
+<td>MySQL, PostgreSQL</td>
+
+<td>MongoDB, Cassandra</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+</body>
+</html>
+<H4>Database Relationships</H4>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="#">Full Stack P3</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#one">One-to-One</a></li>
+                <li class="nav-item"><a class="nav-link" href="#many">One-to-Many</a></li>
+                <li class="nav-item"><a class="nav-link" href="#mm">Many-to-Many</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="container text-center">
+        <h1>Structuring Data Through Relational Geometry</h1>
+        <p>Understanding SQL Database Relationships</p>
+    </div>
+</section>
+
+<div class="container py-5">
+
+    <div class="card mb-4 shadow">
+        <div class="card-body" id="one">
+            <h2>One-to-One (1:1)</h2>
+
+            <h4>User ➜ UserProfile</h4>
+
+            <p>
+                One User has exactly one User Profile.
+                Each profile belongs to only one user.
+            </p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <th>User</th>
+                    <th>UserProfile</th>
+                </tr>
+
+                <tr>
+                    <td>Priscilla</td>
+                    <td>Software Developer</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow">
+
+        <div class="card-body" id="many">
+
+            <h2>One-to-Many (1:M)</h2>
+
+            <h4>Customer ➜ Orders</h4>
+
+            <p>
+                One Customer can have multiple Orders.
+            </p>
+
+            <table class="table table-bordered">
+
+                <tr>
+
+                    <th>Customer</th>
+
+                    <th>Orders</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>John</td>
+
+                    <td>Order 101, Order 102, Order 103</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-body" id="mm">
+
+            <h2>Many-to-Many (M:M)</h2>
+
+            <h4>Students ⇄ Courses</h4>
+
+            <p>
+
+                Multiple Students can enroll in multiple Courses
+                through an Enrollment table.
+
+            </p>
+
+            <table class="table table-bordered">
+
+                <tr>
+
+                    <th>Student</th>
+
+                    <th>Course</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>Alice</td>
+
+                    <td>Java Full Stack</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Bob</td>
+
+                    <td>Spring Boot</td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+<div class="container">
+
+    <h1>Binding the System Together with Keys</h1>
+
+    <div class="primary-box">
+        <strong>Primary Key:</strong>
+        The unique identifier for every single row in a table.
+        Ensures absolute distinctness.
+        No two records are identical.
+    </div>
+
+    <div class="tables">
+
+        <!-- Users Table -->
+        <div class="table-box">
+
+            <h2>Users</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>UserID 🔒</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>Alice</td>
+                        <td>alice@email.com</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Arrow -->
+        <div class="arrow">
+            ➜
+        </div>
+
+        <!-- Orders Table -->
+        <div class="table-box">
+
+            <h2>Orders</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>OrderID</th>
+                        <th>Total</th>
+                        <th>UserID 🔑</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>505</td>
+                        <td>$42.00</td>
+                        <td>101</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="foreign-box">
+        <strong>Foreign Key:</strong>
+        The structural glue. It points directly back to a Primary Key in another table,
+        establishing a relationship and maintaining referential integrity.
+    </div>
+
+</div>
+
+</body>
+</html>
+    <h5>Bridging the Gap Between Code and Storage</h5>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<section class="bridge">
+
+    <div class="container">
+
+        <h1>
+            Bridging the Gap Between <br>
+            Code and Storage
+        </h1>
+
+        <div class="bridge-area">
+
+            <!-- Backend -->
+            <div class="backend">
+
+                <i class="fas fa-server"></i>
+
+                <h2>Application Code</h2>
+                <p>(Backend)</p>
+
+            </div>
+
+            <!-- Middle -->
+            <div class="middle">
+
+                <div class="native-driver">
+                    Native Drivers
+                </div>
+
+                <div class="bridge-top"></div>
+
+                <div class="orm-box">
+                    Object-Relational Mapping (ORM)
+                </div>
+
+                <div class="bridge-bottom"></div>
+
+            </div>
+
+            <!-- Database -->
+            <div class="database">
+
+                <i class="fas fa-database"></i>
+
+                <h2>Database</h2>
+                <p>Storage</p>
+
+            </div>
+
+        </div>
+
+        <div class="description">
+
+            <p>
+                Application code requires a dedicated translation layer
+                to communicate with a database.
+            </p>
+
+            <p>
+                Your architecture depends entirely on which bridge you choose to build.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+    <section class="crud-section">
+        <div class="container">
+
+            <h1>The Fundamental Operations of State Persistence</h1>
+
+            <div class="crud-grid">
+
+                <!-- Create -->
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoUt1Rb8DaNcE3hUsm6JubhFxxSc4A4694cu5oqoIHDA&s=10" alt="Create">
+                    <h2>Create</h2>
+                    <p>Adding new data entries into the memory vault.</p>
+                </div>
+
+                <!-- Read -->
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFEiz_uBrVBstpjMXBCInDFUe5M_ckaIBs07CYs8mZ3Q&s=10" alt="Read">
+                    <h2>Read</h2>
+                    <p>Retrieving and viewing existing data entries.</p>
+                </div>
+
+                <!-- Update -->
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKaM4SbgdJWJn6VyG_TvLaih-vDZVfqro-3LoJnNPkYA&s=10" alt="Update">
+                    <h2>Update</h2>
+                    <p>Modifying the details of existing data entries.</p>
+                </div>
+
+                <!-- Delete -->
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxBvaa_NYggbeXI2ArsxzEbAM5NxzNRFy3BOf1Geg2fw&s=10" alt="Delete">
+                    <h2>Delete</h2>
+                    <p>Removing unwanted or obsolete data entries.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
+<section class="mapping-section">
+
+        <div class="container">
+
+            <h1>Mapping Database Actions to the Web</h1>
+
+            <div class="mapping-table">
+
+                <div class="row">
+                    <span class="crud">CREATE</span>
+                    <span>=</span>
+                    <span class="http">HTTP POST</span>
+                    <span>=</span>
+                    <span class="sql">SQL INSERT</span>
+                </div>
+
+                <p class="note">
+                    POST is non-idempotent; identical requests create multiple new resources.
+                </p>
+
+                <div class="row">
+                    <span class="crud">READ</span>
+                    <span>=</span>
+                    <span class="http">HTTP GET</span>
+                    <span>=</span>
+                    <span class="sql">SQL SELECT</span>
+                </div>
+
+                <div class="row">
+                    <span class="crud">UPDATE</span>
+                    <span>=</span>
+                    <span class="http">HTTP PUT</span>
+                    <span>=</span>
+                    <span class="sql">SQL UPDATE</span>
+                </div>
+
+                <p class="note">
+                    (or PATCH for partial updates)
+                </p>
+
+                <div class="row">
+                    <span class="crud">DELETE</span>
+                    <span>=</span>
+                    <span class="http">HTTP DELETE</span>
+                    <span>=</span>
+                    <span class="sql">SQL DELETE</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
+
+<section class="database">
+
+    <div class="container">
+
+        <!-- Left Content -->
+        <div class="left-content">
+
+            <h1>
+                The Database is the<br>
+                Final Source of Truth
+            </h1>
+
+            <div class="info-box">
+                Databases must never trust application logic blindly.
+                Data integrity must be enforced strictly at the schema level.
+            </div>
+
+            <!-- UNIQUE -->
+            <div class="feature">
+
+                <div class="feature-title">
+                    UNIQUE
+                </div>
+
+                <div class="feature-text">
+                    Enforces that all values in a column are entirely distinct.
+                    Prevents duplicate usernames or email addresses.
+                </div>
+
+            </div>
+
+            <!-- NOT NULL -->
+            <div class="feature">
+
+                <div class="feature-title">
+                    NOT NULL
+                </div>
+
+                <div class="feature-text">
+                    Ensures a column can never be left empty.
+                    Critical data points must always be provided.
+                </div>
+
+            </div>
+
+            <!-- CHECK -->
+            <div class="feature">
+
+                <div class="feature-title">
+                    CHECK
+                </div>
+
+                <div class="feature-text">
+                    Imposes a strict mathematical or logical condition
+                    on the values allowed in a column
+                    (e.g., age &gt;= 18).
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Image -->
+        <div class="right-content">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFd5kJxNEuOSpTjAuvfCXztQ0muD3H9XahA-4mAyUOvg&s=10" alt="Database Vault">
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
+
+<section class="sql-section">
+
+    <div class="container">
+
+        <!-- Left Content -->
+        <div class="left-content">
+
+            <h1>The Persistent Threat<br>of SQL Injection</h1>
+
+            <div class="diagram">
+
+                <!-- User Input -->
+                <div class="email-box">
+                    <h3>Email Address</h3>
+
+                    <div class="input-box">
+                        ' OR 1=1 --
+                    </div>
+
+                    <p class="arrow-text">↑ Malicious User Input</p>
+                </div>
+
+                <!-- Query -->
+                <div class="query-box">
+                    <pre>
+SELECT * FROM users
+WHERE email = '" + userInput + "';
+                    </pre>
+                </div>
+
+            </div>
+
+            <p class="description">
+                Raw concatenation fails to distinguish between intended data and
+                malicious executable logic, allowing attackers to bypass
+                authentication entirely.
+            </p>
+
+        </div>
+
+        <!-- Right Content -->
+        <div class="right-content">
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-eS0TwzVEJbBkhC2-0dlJ2jCPzYLY5D30PnQ26ET_g&s=10" alt="SQL Injection">
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>
+<!-- Registration -->
+
+<section id="register" class="py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-4">
+Registration Form
+</h2>
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+<form>
+
+<div class="mb-3">
+
+<label>Name</label>
+
+<input type="text"
+class="form-control"
+placeholder="Enter Name">
+
+</div>
+
+<div class="mb-3">
+
+<label>Email</label>
+
+<input type="email"
+class="form-control"
+placeholder="Enter Email">
+
+</div>
+
+<div class="mb-3">
+
+<label>Phone</label>
+
+<input type="text"
+class="form-control"
+placeholder="Enter Phone">
+
+</div>
+
+<div class="mb-3">
+
+<label>Course</label>
+
+<input type="text"
+class="form-control"
+placeholder="Java Full Stack">
+
+</div>
+
+<button class="btn btn-primary w-100">
+
+Submit
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- Contact -->
+<section id="contact" class="py-5">
+
+    <div class="container text-center">
+
+        <h2>Contact</h2>
+
+        <p>Email : info@example.com</p>
+
+        <p>Phone : +91 9876543210</p>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3">
+    © 2026 Database Integration Project | Java Full Stack
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
