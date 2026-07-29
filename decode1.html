@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend API Development</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Backend API Development</h1>
+    <p>Create API Endpoints (GET / POST)</p>
+</header>
+
+<section class="container">
+
+    <div class="card">
+
+        <h2>User Registration</h2>
+
+        <form id="userForm">
+
+            <input type="text"
+                   id="name"
+                   placeholder="Enter Name"
+                   required>
+
+            <input type="email"
+                   id="email"
+                   placeholder="Enter Email"
+                   required>
+
+            <button type="submit">
+                Submit
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+</section>
+
+<script>
+
+document.getElementById("userForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const user = {
+
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value
+
+    };
+
+    fetch("http://localhost:8080/api/user",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(user)
+
+    })
+
+    .then(response=>response.text())
+
+    .then(data=>{
+
+        document.getElementById("message").innerHTML=data;
+
+    })
+
+    .catch(error=>{
+
+        document.getElementById("message").innerHTML="Server Error";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+
+
+<section class="container">
+
+    <div class="left">
+        <h3>PROJECT 2:</h3>
+
+        <h1>THE NERVOUS<br>SYSTEM</h1>
+
+        <h2>ENGINEERING THE BACKEND<br>
+        API & ARCHITECTURAL<br>
+        INTEGRITY</h2>
+
+        <p>
+            Martina Plantijn body:<br>
+            Project 1 was the skin.<br>
+            Project 2 is the life.
+        </p>
+    </div>
+
+    <div class="right">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW3bceu4CRP1XyR4QQYQ_kEtLV2od5Yr8AUTu04SlxzQ&s=10" alt="Brain Diagram">
+
+    </div>
+
+</section>
+<
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="paradigm py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bold">
+                THE PARADIGM SHIFT
+            </h1>
+
+            <p class="lead">
+                Visual Feedback vs. Logical Consistency
+            </p>
+        </div>
+
+        <div class="row align-items-center">
+
+            <!-- Frontend -->
+            <div class="col-lg-6 mb-4">
+
+                <h3 class="text-center mb-4">
+                    THE SKIN (FRONTEND)
+                </h3>
+
+                <div class="image-card">
+
+                    <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwXbPKCbWpYc26PpnBG2KWXLlIUQgKOTdYSUJZO4jLsw&s=10">
+                    class="img-fluid"
+                    alt="Frontend">
+
+                </div>
+
+                <div class="mt-4">
+
+                    <ul class="list-group">
+
+                        <li class="list-group-item">
+                            Color Palette
+                        </li>
+
+                        <li class="list-group-item">
+                            Typography
+                        </li>
+
+                        <li class="list-group-item">
+                            Texture & Gradient
+                        </li>
+
+                        <li class="list-group-item">
+                            User Interface Layer
+                        </li>
+
+                        <li class="list-group-item">
+                            Visual Feedback
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- Backend -->
+            <div class="col-lg-6">
+
+                <h3 class="text-center mb-4">
+                    THE NERVES (BACKEND)
+                </h3>
+
+                <div class="image-card">
+
+                    <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4Rkk0pDt5q4bpuI-coVkGvqEEAO734MEeZmjFyWVsxA&s=10">
+                    class="img-fluid"
+                    alt="Backend">
+
+                </div>
+
+                <div class="mt-4">
+
+                    <ul class="list-group">
+
+                        <li class="list-group-item">
+                            Data Processing
+                        </li>
+
+                        <li class="list-group-item">
+                            Database
+                        </li>
+
+                        <li class="list-group-item">
+                            API Communication
+                        </li>
+
+                        <li class="list-group-item">
+                            Authentication
+                        </li>
+
+                        <li class="list-group-item">
+                            Business Logic
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="ipo-section py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h1 class="display-4 fw-bold">
+THE PULSE OF THE SYSTEM: IPO MODEL
+</h1>
+
+<p class="lead">
+Input → Process → Output
+</p>
+
+</div>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-10">
+
+<div class="ipo-card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlcS6Fs0ajVgUL_a2B6IJKffFoVZ4OTuHOOYZp0awL8g&s=10">
+class="img-fluid"
+alt="IPO Model Diagram">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row mt-5">
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h3>INPUT</h3>
+
+<p>
+Collects user requirements, data, requests and external information before processing begins.
+</p>
+
+<ul>
+<li>User Input</li>
+<li>Requirements</li>
+<li>Data Stream</li>
+<li>Validation</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h3>PROCESS</h3>
+
+<p>
+The backend processes the received information using business logic and algorithms.
+</p>
+
+<ul>
+<li>Business Logic</li>
+<li>API Calls</li>
+<li>Database</li>
+<li>Calculations</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h3>OUTPUT</h3>
+
+<p>
+Displays processed information and provides feedback to the user interface.
+</p>
+
+<ul>
+<li>Result</li>
+<li>Reports</li>
+<li>Notifications</li>
+<li>Feedback</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="bridge-section py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+<h1 class="display-4 fw-bold">
+Bridging the Synaptic Gap
+</h1>
+
+<p class="lead">
+Connecting the Client (Browser) with the Server (API)
+</p>
+</div>
+
+<div class="row align-items-center">
+
+<!-- Client -->
+<div class="col-lg-4 text-center">
+
+<div class="card-box">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfaVr8MmouFWkQgsEbYdOW5FgU8ZqHX1nnEwaVXl6WQw&s=10"
+class="img-fluid mb-3"
+alt="Client">
+
+<h3>Client (Browser)</h3>
+
+<p>
+User Interface where requests are initiated using HTML, CSS and JavaScript.
+</p>
+
+</div>
+
+</div>
+
+<!-- Network -->
+<div class="col-lg-4 text-center">
+
+<div class="card-box">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwnFVZhtF7w3ef6lgVBGqu4EG_Kq-a2g33mkOhZcDChg&s=10"
+class="img-fluid mb-3"
+alt="Network">
+
+<h3>Network Communication</h3>
+
+<p>
+JSON requests travel across the network to the backend API using HTTP.
+</p>
+
+<ul class="list-unstyled mt-3">
+<li>✔ JSON Request</li>
+<li>✔ REST API</li>
+<li>✔ HTTP Protocol</li>
+<li>✔ Latency</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- Server -->
+<div class="col-lg-4 text-center">
+
+<div class="card-box">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdzBTIZJLmoBSFYjbMcH1Kv3iS0vZQumP0g0hR9EYZsg&s=10">
+class="img-fluid mb-3"
+alt="Server">
+
+<h3>Server (API)</h3>
+
+<p>
+Processes requests, accesses the database and sends JSON responses.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row text-center">
+
+<div class="col-md-4">
+
+<div class="feature">
+
+<h4>Latency</h4>
+
+<p>
+Network delay between client and server.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature">
+
+<h4>Statelessness</h4>
+
+<p>
+Every HTTP request is independent.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature">
+
+<h4>Resilience</h4>
+
+<p>
+Reliable communication between systems.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+<section class="http-section">
+
+<div class="container">
+
+<div class="text-center mb-5">
+<h1>ANATOMY OF ACTION: HTTP METHODS</h1>
+<p>Understanding GET, POST, PUT & DELETE</p>
+</div>
+
+<div class="row g-4">
+
+<!-- GET -->
+<div class="col-md-6">
+
+<div class="method-card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrAw8Ygj4scfVRpFjrcBiUnHDk5p0jM4kV2KmcUgs0Jg&s=10" class="img-fluid" alt="GET">
+
+<h2>GET</h2>
+
+<ul>
+<li>Retrieve Data</li>
+<li>Safe Method</li>
+<li>Idempotent</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- POST -->
+<div class="col-md-6">
+
+<div class="method-card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMInL8wKV38O7UMeZ-l6eHC9yqy7cPRkp7Pay1DXui_w&s=10" class="img-fluid" alt="POST">
+
+<h2>POST</h2>
+
+<ul>
+<li>Create Resource</li>
+<li>Unsafe</li>
+<li>Non-Idempotent</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- PUT -->
+<div class="col-md-6">
+
+<div class="method-card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPFIQd1g_WaeUZ00iKxI2M-hCVEhNPU871_CCKQ_iLOA&s=10" class="img-fluid" alt="PUT">
+
+<h2>PUT</h2>
+
+<ul>
+<li>Update Resource</li>
+<li>Replace Data</li>
+<li>Idempotent</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- DELETE -->
+<div class="col-md-6">
+
+<div class="method-card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCaY0kGPEvXRpzGbdZT9OJzbSqt1DI51AQYwWw8oqb0w&s=10" class="img-fluid" alt="DELETE">
+
+<h2>DELETE</h2>
+
+<ul>
+<li>Delete Resource</li>
+<li>Permanent Removal</li>
+<li>Idempotent</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
+
+<section class="rest-section py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+<h1>The Language of Nerves: RESTful Naming</h1>
+<p class="lead">Resources are Nouns. Methods are Verbs.</p>
+</div>
+
+<div class="row g-4">
+
+<!-- Incorrect Naming -->
+<div class="col-lg-6">
+
+<div class="rest-card wrong">
+
+<h2>The Incorrect Mutations</h2>
+
+<div class="example">
+<img src="data:image/jpeg;base64,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" class="img-fluid" alt="">
+<p><strong>GET</strong> /getUsers</p>
+</div>
+
+<div class="example">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuv8F2m_TLNTVH2OUFOJLYY0J-C040nwppYXOh3xUXBg&s=10" class="img-fluid" alt="">
+<p><strong>POST</strong> /createUser</p>
+</div>
+
+<div class="example">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHTZ-wuwFViTyqYsArPLf6Kc0caMHsDHnGcoWxR4ZcpA&s=10" class="img-fluid" alt="">
+<p><strong>GET</strong> /users.xml</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Correct Naming -->
+<div class="col-lg-6">
+
+<div class="rest-card correct">
+
+<h2>The Healthy Organism</h2>
+
+<div class="example">
+<img src="images/right1.png" class="img-fluid" alt="">
+<p>✓ <strong>GET</strong> /users</p>
+</div>
+
+<div class="example">
+<img src="images/right2.png" class="img-fluid" alt="">
+<p>✓ <strong>POST</strong> /users</p>
+</div>
+
+<div class="example">
+<img src="images/right3.png" class="img-fluid" alt="">
+<p>✓ <strong>GET</strong> /users/{id}/posts</p>
+</div>
+
+<div class="example">
+<img src="images/right4.png" class="img-fluid" alt="">
+<p>✓ <strong>GET</strong> /first-name</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="text-center mt-5">
+
+<div class="footer-box">
+Resources are <strong>Nouns</strong>. Methods are <strong>Verbs</strong>.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
+<!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="gatekeeper py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<h1>The Gatekeeper Rule</h1>
+
+<p class="subtitle">
+"Never Trust the Client"
+</p>
+
+</div>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-10">
+
+<div class="main-card">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM-HUueqeO0De1bZ7yjGAny_mpP_lpznOs38X-najuXQ&s=10"
+class="img-fluid"
+alt="Gatekeeper Rule">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row mt-5">
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h3>External World</h3>
+
+<p>
+Incoming client requests and user data enter the application.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h3>Validation Layer</h3>
+
+<p>
+Perform syntax validation, semantic validation and authentication before processing.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h3>Database</h3>
+
+<p>
+Only validated requests are allowed to reach the server and database.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="row mt-4">
+
+<div class="col-md-6">
+
+<div class="validation">
+
+<h4>Syntactic Validation</h4>
+
+<ul>
+
+<li>Required Fields</li>
+
+<li>Correct Format</li>
+
+<li>Input Length</li>
+
+<li>Allowed Characters</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="validation">
+
+<h4>Semantic Validation</h4>
+
+<ul>
+
+<li>Business Rules</li>
+
+<li>Unique Records</li>
+
+<li>Authorization</li>
+
+<li>Logical Checks</li>
+
+</ul>
+
+</section>
+
+</body>
+</html>
+
+    <div class="container">
+
+        <h1>The Neurotransmitter: JSON</h1>
+
+        <p class="subtitle">
+            Fractal scale data exchange. Lightweight. Machine-parsable. Human-readable.
+        </p>
+
+        <div class="json-box">
+
+<pre>
+{
+    "user": {
+        "id": 101,
+
+        "profile": {
+            "role": "admin"
+        }
+    }
+}
+</pre>
+
+        </div>
+
+        <div class="info">
+
+            <div class="card">
+                <h2>What is JSON?</h2>
+                <p>
+                    JSON (JavaScript Object Notation) is a lightweight data
+                    exchange format that is easy for humans to read and write
+                    and easy for machines to parse.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Features</h2>
+
+                <ul>
+                    <li>Lightweight</li>
+                    <li>Human Readable</li>
+                    <li>Machine Parsable</li>
+                    <li>Language Independent</li>
+                    <li>Used in REST APIs</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Backend API Development • JSON Example</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>
